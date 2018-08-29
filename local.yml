@@ -1,8 +1,9 @@
 - hosts: localhost
   become: true
   tasks:
+
   - name: Install Tmux
-    apt: tmux
+    apt: name=tmux
 
   - name: Install mc
-    apt: mc
+    apt: name=mc
