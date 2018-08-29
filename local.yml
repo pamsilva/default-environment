@@ -3,3 +3,6 @@
   tasks:
   - name: Install Tmux
     apt: tmux
+
+  - name: Install mc
+    apt: mc
