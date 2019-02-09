@@ -4,7 +4,7 @@
   
   - name: Install Relevant Packages
     apt:
-      name: {{ packages }}
+      name: "{{ packages }}"
     vars:
       packages:
       - zsh
