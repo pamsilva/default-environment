@@ -1,11 +1,12 @@
 ---
 - hosts: localhost
-  become: true
   tasks:
   
   - name: Install Relevant Packages
-    apt: name={{ item }}
-    with_items:
+    apt:
+      name: {{ packages }}
+    vars:
+      packages:
       - zsh
       - tmux
       - wget
