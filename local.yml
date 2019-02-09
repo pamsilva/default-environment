@@ -1,9 +1,26 @@
+---
 - hosts: localhost
   become: true
   tasks:
+  
+  - name: Install Relevant Packages
+    apt: name={{ item }}
+    with_items:
+      - zsh
+      - tmux
+      - wget
 
-  - name: Install Tmux
-    apt: name=tmux
+  - name: Download ohMyZSH
+    get_url: 
+      url: https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh 
+      dest: /tmp/zsh-installer.sh
+      mode: 755
 
-  - name: Install mc
-    apt: name=mc
+  - name: Run ohMyZSH installer
+    shell: /tmp/zsh-installer.sh
+
+  - name: Cleanup installer
+    file: 
+      path: /tmp/zsh-installer.sh
+      state: absent
+
