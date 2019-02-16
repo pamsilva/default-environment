@@ -25,3 +25,6 @@
       path: /tmp/zsh-installer.sh
       state: absent
 
+  - name: Set zsh as default shell
+    shell: chsh -s /usr/bin/zsh $USER
+
