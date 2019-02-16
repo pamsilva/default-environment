@@ -26,5 +26,5 @@
       state: absent
 
   - name: Set zsh as default shell
-    shell: chsh -s /usr/bin/zsh $USER "{{ user }}"
+    shell: chsh -s /usr/bin/zsh "{{ user }}"
 
