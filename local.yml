@@ -27,4 +27,11 @@
 
   - name: Set zsh as default shell
     shell: chsh -s /usr/bin/zsh "{{ user }}"
+  
+  - name: Install oh-my-zsh custom .zshrc file
+    copy:
+      src: "/home/{{ user }}/.oh-my-zsh/templates/zshrc.zsh-template"
+      dest: "/home/{{ user }}/.zshrc"
+      owner: "{{ user }}"
+      owner: "{{ user }}"
 
