@@ -10,14 +10,15 @@
       - zsh
       - tmux
       - wget
-
-  - name: Download ohMyZSH
+   
+  # Handle the instalation of oh-my-zsh
+  - name: Download oh-my-zsh
     get_url: 
       url: https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh 
       dest: /tmp/zsh-installer.sh
       mode: 755
 
-  - name: Run ohMyZSH installer
+  - name: Run oh-my-zsh installer
     shell: /tmp/zsh-installer.sh
 
   - name: Cleanup installer
@@ -33,5 +34,18 @@
       src: "/home/{{ user }}/.oh-my-zsh/templates/zshrc.zsh-template"
       dest: "/home/{{ user }}/.zshrc"
       owner: "{{ user }}"
-      owner: "{{ user }}"
+      group: "{{ user }}"
+  
+  # Install default environment on machine
+  - name: Clone repo into user's home directory
+    git:
+      repo: git@github.com:pamsilva/default-environment.git
+      dest: "/home/{{ user }}/.default-environment"
+  
+  # Set up tmux 
+  - name: Setting up tmux
+    file:
+      src: "/home/{{ user }}/.default-environment/tmux.conf"
+      dest: "/home/{{ user }}/.tmux.conf
+      state: link
 
