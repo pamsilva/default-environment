@@ -46,6 +46,6 @@
   - name: Setting up tmux
     file:
       src: "/home/{{ user }}/.default-environment/tmux.conf"
-      dest: "/home/{{ user }}/.tmux.conf
+      dest: "/home/{{ user }}/.tmux.conf"
       state: link
 
