@@ -11,8 +11,14 @@
       - tmux
       - wget
   
+  - name: Check if myzsh is already installed
+    stat:
+      path: "/home/{{ user }}/.default-environment"
+    register: oh_my_zsh_installed
+  
   - name: do stuff
     include_tasks: install-oh-my-zsh.yml
+    when: not oh_my_zsh_installed
   
   # Install default environment on machine
   - name: Clone repo into user's home directory
