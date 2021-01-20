@@ -25,6 +25,7 @@
     git:
       repo: git@github.com:pamsilva/default-environment.git
       dest: "/home/{{ user }}/.default-environment"
+      accept_hostkey: no
       # key_file: "/home/{{ user }}/.ssh/id_rsa"
  
   # Set up tmux 
