@@ -28,6 +28,7 @@
       accept_hostkey: yes
       # key_file: "/home/{{ user }}/.ssh/id_rsa"
  
+ 
   # Set up tmux 
   - name: Setting up tmux
     file:
