@@ -8,8 +8,10 @@
     vars:
       packages:
       - zsh
+      - xclip
       - tmux
       - wget
+      - emacs
   
   - name: Check if myzsh is already installed
     stat:
