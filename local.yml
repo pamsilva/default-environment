@@ -11,6 +11,7 @@
       - xclip
       - tmux
       - wget
+      - curl
       - emacs
   
   - name: Check if myzsh is already installed
