@@ -10,7 +10,6 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
-(load-theme 'tango-dark)
 
 ;; Line numbers
 (column-number-mode)
@@ -35,9 +34,11 @@
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
 
+
 (package-initialize)
+;;(package-refresh-contents)
 (unless package-archive-contents
-  (package-refresh-contents))
+ (package-refresh-contents))
 
 ;; Initialize use-package on non-Linux platforms
 (unless (package-installed-p 'use-package)
@@ -87,11 +88,12 @@
 ;; Mode line
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :custom ((doom-modeline-height 30)))
 (setq doom-modeline-minor-modes 1)
 
 (use-package doom-themes
-  :init (load-theme 'doom-dracula t))
+  :init (load-theme 'doom-city-lights t))
+;; (load-theme 'doom-city-lights)
 
 
 (use-package rainbow-delimiters
@@ -207,7 +209,7 @@
   :hook (org-mode . efs/org-mode-setup)
   :config
   (setq org-ellipsis " ▾")
-
+  (setq org-support-shift-select t)
   (efs/org-font-setup))
 
 (use-package org-bullets
@@ -218,7 +220,7 @@
 
 
 (defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 150
+  (setq visual-fill-column-width 120
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
@@ -251,14 +253,30 @@
 ;;   (evil-collection-init))
 
 
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-safe-themes
+;;    '("c4bdbbd52c8e07112d1bfd00fee22bf0f25e727e95623ecb20c4fa098b74c1bd" default))
+;;  '(doom-modeline-height 15)
+;;  '(package-selected-packages
+;;    '(all-the-icons-ivy-rich visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package)))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package))))
+ '(custom-safe-themes
+   '("c4bdbbd52c8e07112d1bfd00fee22bf0f25e727e95623ecb20c4fa098b74c1bd" default))
+ '(doom-modeline-height 30))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
