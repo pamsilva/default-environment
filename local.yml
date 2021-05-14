@@ -16,7 +16,7 @@
   
   - name: Check if myzsh is already installed
     stat:
-      path: "/home/{{ user }}/.default-environment"
+      path: "/home/{{ user }}/.oh-my-zsh"
     register: oh_my_zsh_installed
   
   - name: do stuff
@@ -29,7 +29,7 @@
       repo: git@github.com:pamsilva/default-environment.git
       dest: "/home/{{ user }}/.default-environment"
       accept_hostkey: yes
-      # key_file: "/home/{{ user }}/.ssh/id_rsa"
+      key_file: "/home/{{ user }}/.ssh/id_rsa"
  
  
   # Set up tmux 
