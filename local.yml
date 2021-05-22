@@ -1,7 +1,5 @@
 ---
 - hosts: localhost
-  vars:
-    oh_my_zsh_installed: False
   tasks:
   
   - name: Install Relevant Packages
@@ -23,7 +21,7 @@
   
   - name: do stuff
     include_tasks: install-oh-my-zsh.yml
-    when: not oh_my_zsh_installed == True
+    when: not oh_my_zsh_installed.stat.exists
   
   # Install default environment on machine
   - name: Clone repo into user's home directory
