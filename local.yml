@@ -23,10 +23,12 @@
   
   - name: do stuff
     include_tasks: install-oh-my-zsh.yml
-    when: not oh_my_zsh_installed
+    when: not oh_my_zsh_installed == True
   
   # Install default environment on machine
   - name: Clone repo into user's home directory
+    become: yes
+    become_user: "{{ user }}"
     git:
       repo: git@github.com:pamsilva/default-environment.git
       dest: "/home/{{ user }}/.default-environment"
@@ -36,6 +38,8 @@
  
   # Set up tmux 
   - name: Setting up tmux
+    become: yes
+    become_user: "{{ user }}"
     file:
       src: "/home/{{ user }}/.default-environment/tmux.conf"
       dest: "/home/{{ user }}/.tmux.conf"
