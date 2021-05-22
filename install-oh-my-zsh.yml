@@ -5,17 +5,17 @@
   become_user: "{{ user }}"
   get_url: 
     url: https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh 
-    dest: /tmp/zsh-installer.sh
+    dest: //zsh-installer.sh
     mode: 0744
 
 - name: Run oh-my-zsh installer
   become: yes
   become_user: "{{ user }}"
-  shell: /tmp/zsh-installer.sh
+  shell: /home/{{ user }}/zsh-installer.sh
 
 - name: Cleanup installer
   file: 
-    path: /tmp/zsh-installer.sh
+    path: /home/{{ user }}/zsh-installer.sh
     state: absent
 
 - name: Set zsh as default shell
