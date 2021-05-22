@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
+  vars:
+    oh_my_zsh_installed: false
   tasks:
   
   - name: Install Relevant Packages
