@@ -1,23 +1,29 @@
 # Handle the instalation of oh-my-zsh
 ---
 - name: Download oh-my-zsh
+  become: yes
+  become_user: "{{ user }}"
   get_url: 
     url: https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh 
-    dest: /tmp/zsh-installer.sh
-    mode: 755
+    dest: /home/{{ user }}/zsh-installer.sh
+    mode: 0744
 
 - name: Run oh-my-zsh installer
-  shell: /tmp/zsh-installer.sh
+  become: yes
+  become_user: "{{ user }}"
+  shell: /home/{{ user }}/zsh-installer.sh
 
 - name: Cleanup installer
   file: 
-    path: /tmp/zsh-installer.sh
+    path: /home/{{ user }}/zsh-installer.sh
     state: absent
 
 - name: Set zsh as default shell
   shell: chsh -s /usr/bin/zsh "{{ user }}"
 
 - name: Install oh-my-zsh custom .zshrc file
+  become: yes
+  become_user: "{{ user }}"
   copy:
     src: "/home/{{ user }}/.oh-my-zsh/templates/zshrc.zsh-template"
     dest: "/home/{{ user }}/.zshrc"
