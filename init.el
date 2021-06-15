@@ -215,7 +215,7 @@
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
-
+  (setq org-image-actual-width 120)
   (setq org-agenda-files
         '("~/Logs/orgs/Tasks.org"
           "~/Logs/orgs/Habits.org"
@@ -224,7 +224,7 @@
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
-
+  
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
       (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
@@ -305,17 +305,22 @@
 
       ("j" "Journal Entries")
       ("jj" "Journal" entry
-           (file+olp+datetree "~/Logs/orgs/Journal.org")
+       (file+olp+datetree "~/Logs/orgs/Journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
            :clock-in :clock-resume
            :empty-lines 1)
       ("jm" "Meeting" entry
-           (file+olp+datetree "~/Logs/orgs/Journal.org")
+       (file+olp+datetree "~/Logs/orgs/Journal.org")
            "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
-
+      ("jw" "Work Journal" entry
+       (file+olp+datetree "~/Logs/orgs/Work-Journal.org")
+       "* %<%I:%M %p> - Work Journal :work-journal:\n\n%?\n\n"
+           :clock-in :clock-resume
+           :empty-lines 1)
+       
       ("w" "Workflows")
       ("we" "Checking Email" entry (file+olp+datetree "~/Logs/orgs/Metrics.org" "Weight")
        "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
@@ -435,7 +440,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("c4bdbbd52c8e07112d1bfd00fee22bf0f25e727e95623ecb20c4fa098b74c1bd" default))
- '(doom-modeline-height 30))
+ '(doom-modeline-height 30)
+ '(package-selected-packages
+   '(typescript-mode company-box zpl-mode yasnippet-snippets yaml-tomato yaml-mode which-key visual-fill-column use-package transpose-frame toml-mode sqlup-mode rustic rainbow-delimiters racer pyimport org-mobile-sync org-bullets multiple-cursors memoize material-theme markdown-mode+ lsp-ui json-reformat jedi-direx hydra helpful gnu-elpa-keyring-update git-lens git-blamed git general forge flymake-rust flycheck-rust elpy ecb doom-themes doom-modeline ctags-update counsel-projectile company-racer company-lsp cargo better-defaults backward-forward async all-the-icons-ivy-rich)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
