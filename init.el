@@ -10,6 +10,7 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
+
 ;; Line numbers
 (column-number-mode)
 (global-display-line-numbers-mode t)
@@ -33,9 +34,11 @@
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
 
+
 (package-initialize)
+;;(package-refresh-contents)
 (unless package-archive-contents
-  (package-refresh-contents))
+ (package-refresh-contents))
 
 ;; Initialize use-package on non-Linux platforms
 (unless (package-installed-p 'use-package)
@@ -85,7 +88,7 @@
 ;; Mode line
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :custom ((doom-modeline-height 30)))
 (setq doom-modeline-minor-modes 1)
 
 
@@ -208,11 +211,11 @@
   :hook (org-mode . efs/org-mode-setup)
   :config
   (setq org-ellipsis " ▾")
-
+  (setq org-support-shift-select t)
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
-
+  (setq org-image-actual-width 120)
   (setq org-agenda-files
         '("~/Logs/orgs/Tasks.org"
           "~/Logs/orgs/Habits.org"
@@ -223,7 +226,7 @@
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
-
+  
   (setq org-todo-keywords
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
       (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
@@ -311,17 +314,22 @@
 
       ("j" "Journal Entries")
       ("jj" "Journal" entry
-           (file+olp+datetree "~/Logs/orgs/Journal.org")
+       (file+olp+datetree "~/Logs/orgs/Journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
            :clock-in :clock-resume
            :empty-lines 1)
       ("jm" "Meeting" entry
-           (file+olp+datetree "~/Logs/orgs/Journal.org")
+       (file+olp+datetree "~/Logs/orgs/Journal.org")
            "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
-
+      ("jw" "Work Journal" entry
+       (file+olp+datetree "~/Logs/orgs/Work-Journal.org")
+       "* %<%I:%M %p> - Work Journal :work-journal:\n\n%?\n\n"
+           :clock-in :clock-resume
+           :empty-lines 1)
+       
       ("w" "Workflows")
       ("we" "Checking Email" entry (file+olp+datetree "~/Logs/orgs/Metrics.org" "Weight")
        "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
@@ -340,7 +348,7 @@
 
 
 (defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 150
+  (setq visual-fill-column-width 120
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
@@ -438,14 +446,37 @@
 ;;   (evil-collection-init))
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (lsp-ivy company-lsp lsp-ui python-mode web-mode rjsx-mode emacs-hnreader hnreader visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package))))
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-safe-themes
+;;    '("c4bdbbd52c8e07112d1bfd00fee22bf0f25e727e95623ecb20c4fa098b74c1bd" default))
+;;  '(doom-modeline-height 15)
+;;  '(package-selected-packages
+;;    '(all-the-icons-ivy-rich visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package)))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-safe-themes
+;;    '("c4bdbbd52c8e07112d1bfd00fee22bf0f25e727e95623ecb20c4fa098b74c1bd" default))
+;;  '(doom-modeline-height 30)
+;;  '(package-selected-packages
+;; <<<<<<< HEAD
+;;    (quote
+;;     (lsp-ivy company-lsp lsp-ui python-mode web-mode rjsx-mode emacs-hnreader hnreader visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package))))
+;; =======
+;;    '(typescript-mode company-box zpl-mode yasnippet-snippets yaml-tomato yaml-mode which-key visual-fill-column use-package transpose-frame toml-mode sqlup-mode rustic rainbow-delimiters racer pyimport org-mobile-sync org-bullets multiple-cursors memoize material-theme markdown-mode+ lsp-ui json-reformat jedi-direx hydra helpful gnu-elpa-keyring-update git-lens git-blamed git general forge flymake-rust flycheck-rust elpy ecb doom-themes doom-modeline ctags-update counsel-projectile company-racer company-lsp cargo better-defaults backward-forward async all-the-icons-ivy-rich)))
+;; >>>>>>> bd17743ca9df5e551692884bc20b50c16b0455da
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
