@@ -118,7 +118,7 @@
 
 ;; Some Key bindings
 ;; Make ESQ quite prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+;; (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 
 (use-package general)
@@ -216,6 +216,8 @@
   (setq org-agenda-files
         '("~/Logs/orgs/Tasks.org"
           "~/Logs/orgs/Habits.org"
+	  "~/Logs/orgs/Archive.org"
+	  "~/Logs/orgs/Todos.org"	  
           "~/Logs/orgs/Birthdays.org"))
 
   (require 'org-habit)
@@ -226,10 +228,17 @@
     '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
       (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
-  (setq org-refile-targets
-    '(("Archive.org" :maxlevel . 1)
-      ("Tasks.org" :maxlevel . 1)))
+  ;; (setq org-refile-targets
+  ;;   '(("~/Logs/orgs/Archive.org" :maxlevel . 1)
+  ;;     ("~/Logs/orgs/Tasks.org" :maxlevel . 1)))
 
+
+  (setq org-refile-targets
+	'((nil :maxlevel . 9)
+	  (org-agenda-files :maxlevel . 9)))
+  
+  (setq org-refile-use-outline-path t)
+  
   ;; Save Org buffers after refiling!
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
@@ -350,7 +359,14 @@
   :init
   (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
   :config
-  (lsp-enable-which-key-integration t))
+  (lsp-enable-which-key-integration t)
+  (use-package lsp-ui
+    :config
+    (lsp-ui-peek-enable 1))
+  (global-set-key (kbd "M-?") 'lsp-ui-peek-find-references)
+  (global-set-key (kbd "M-.") 'lsp-ui-peek-find-definitions)
+  (use-package lsp-ivy))
+
 
 
 (use-package company
@@ -368,20 +384,33 @@
   :hook (company-mode . company-box-mode))
 
 
+(use-package multiple-cursors)
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)
+
+
 (use-package rust-mode
   :mode "\\.rs\\'"
   :hook (rust-mode . lsp-deferred))
 
 
+(use-package python-mode
+  :mode "\\.py\\'"
+  :hook (python-mode . lsp-deferred))
+
 ;; (use-package lsp-rust
 ;;   :after lsp-mode)
 
-
 (use-package typescript-mode
   :mode "\\.ts\\'"
+  ;; :mode "\\.tsx\\'"
   :hook (typescript-mode . lsp-deferred)
   :config
   (setq typescript-indent-level 4))
+
+(use-package rjsx-mode
+  :mode "\\.tsx\\'"
+  :mode "\\.jsx\\'")
+(use-package web-mode)
 
 
 ;; Evil stuff
@@ -416,7 +445,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package))))
+    (lsp-ivy company-lsp lsp-ui python-mode web-mode rjsx-mode emacs-hnreader hnreader visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
