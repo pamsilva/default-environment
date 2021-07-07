@@ -3,6 +3,14 @@ My default dev environment
 
 ### To run this
 
+First you'll need to install a few things in order to have a usable system:
+
+```
+sudo apt-get install keepassx gnome-tweaks ansible syncthing git gnome-shell-extensions
+```
+
+Once this is done, run the following to setup the default environment.
+
 ```
 sudo ansible-pull -U https://github.com/pamsilva/default-environment --extra-vars "user=$USER"
 ```
