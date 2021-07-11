@@ -48,9 +48,18 @@
       dest: "/home/{{ user }}/.emacs.d/init.el"
       state: link
 
-  - name: Create Logs directory
+  - name: Setp ORG - create Logs directory
     become: yes
     become_user: "{{ user }}"
     file:
-      src: "/home/{{ user }}/Logs
+      src: "/home/{{ user }}/Logs"
       state: directory
+
+  - name: Setp ORG - create symbolic link for orgs directory
+    become: yes
+    become_user: "{{ user }}"
+    file:
+      src: "/home/{{ user }}/4mlox-hdazt/orgs"
+      dest: "/home/{{ user }}/Logs/orgs"
+      state: link
+
