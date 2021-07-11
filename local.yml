@@ -52,7 +52,7 @@
     become: yes
     become_user: "{{ user }}"
     file:
-      src: "/home/{{ user }}/Logs"
+      path: "/home/{{ user }}/Logs"
       state: directory
 
   - name: Setp ORG - create symbolic link for orgs directory
