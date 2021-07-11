@@ -9,7 +9,7 @@
       packages:
       - zsh
       - xclip
-nnn      - tmux
+      - tmux
       - wget
       - curl
       - emacs
