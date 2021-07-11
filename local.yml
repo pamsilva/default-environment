@@ -32,7 +32,6 @@
       accept_hostkey: yes
       key_file: "/home/{{ user }}/.ssh/id_rsa"
  
- 
   - name: Setting up tmux
     become: yes
     become_user: "{{ user }}"
