@@ -48,7 +48,7 @@
       dest: "/home/{{ user }}/.emacs.d/init.el"
       state: link
 
-  - name: Setp ORG - create Logs directory
+  - name: Create Logs directory
     become: yes
     become_user: "{{ user }}"
     file:
