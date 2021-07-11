@@ -34,12 +34,21 @@
       key_file: "/home/{{ user }}/.ssh/id_rsa"
  
  
-  # Set up tmux 
+  # Set up tmux configuration
   - name: Setting up tmux
     become: yes
     become_user: "{{ user }}"
     file:
       src: "/home/{{ user }}/.default-environment/tmux.conf"
       dest: "/home/{{ user }}/.tmux.conf"
+      state: link
+
+  # Set up emacs configuration
+  - name: Setting up emacs configuration
+    become: yes
+    become_user: "{{ user }}"
+    file:
+      src: "/home/{{ user }}/.default-environment/init.el"
+      dest: "/home/{{ user }}/.emacs/init.el"
       state: link
 
