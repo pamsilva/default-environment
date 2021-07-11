@@ -9,7 +9,7 @@
       packages:
       - zsh
       - xclip
-      - tmux
+nnn      - tmux
       - wget
       - curl
       - emacs
@@ -49,6 +49,6 @@
     become_user: "{{ user }}"
     file:
       src: "/home/{{ user }}/.default-environment/init.el"
-      dest: "/home/{{ user }}/.emacs/init.el"
+      dest: "/home/{{ user }}/.emacs.d/init.el"
       state: link
 
