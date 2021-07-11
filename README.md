@@ -1,7 +1,7 @@
 # default-environment
 My default dev environment
 
-### To run this
+## To run this
 
 First you'll need to install a few things in order to have a usable system:
 
@@ -10,7 +10,7 @@ sudo apt-get install keepassx gnome-tweaks ansible syncthing git gnome-shell-ext
 ```
 
 
-#### Setup Git
+## Setup Git
 
 The machine needs to be setup properly to access github through a key, and that key needs to be added to the ssh agent, in order to be able to clone the repo and run the rest of the ansible setup.
 
@@ -21,7 +21,7 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/<private_key>
 ```
 
-#### Executing the ansible setup
+## Executing the ansible setup
 
 Once this is done, run the following to setup the default environment.
 
