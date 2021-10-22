@@ -223,6 +223,8 @@
 	  "~/Logs/orgs/Todos.org"	  
           "~/Logs/orgs/Birthdays.org"))
 
+  (setq org-image-actual-width nil)
+
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
@@ -490,6 +492,3 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (sql-indent which-key web-mode visual-fill-column use-package typescript-mode rust-mode rjsx-mode rainbow-delimiters python-mode org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra helpful general forge doom-themes doom-modeline counsel-projectile company-box))))
