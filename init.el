@@ -223,6 +223,8 @@
 	  "~/Logs/orgs/Todos.org"	  
           "~/Logs/orgs/Birthdays.org"))
 
+  (setq org-image-actual-width nil)
+
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
@@ -483,3 +485,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(doom-modeline-height 30)
+ '(package-selected-packages
+   '(web-mode rjsx-mode python-mode zpl-mode yasnippet-snippets yaml-tomato yaml-mode which-key visual-fill-column use-package typescript-mode transpose-frame toml-mode sqlup-mode rustic rainbow-delimiters racer pyimport org-mobile-sync org-bullets multiple-cursors memoize material-theme markdown-mode+ lsp-ui json-reformat jedi-direx hydra helpful gnu-elpa-keyring-update git-lens git-blamed git general forge flymake-rust flycheck-rust elpy ecb doom-themes doom-modeline ctags-update counsel-projectile company-racer company-lsp company-box cargo better-defaults backward-forward async all-the-icons-ivy-rich)))
