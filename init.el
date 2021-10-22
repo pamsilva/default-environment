@@ -420,6 +420,8 @@
   :mode "\\.jsx\\'")
 (use-package web-mode)
 
+(use-package sql-indent)
+
 
 ;; Evil stuff
 ;; (use-package evil
@@ -483,3 +485,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (sql-indent which-key web-mode visual-fill-column use-package typescript-mode rust-mode rjsx-mode rainbow-delimiters python-mode org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra helpful general forge doom-themes doom-modeline counsel-projectile company-box))))
