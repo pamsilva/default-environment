@@ -396,6 +396,8 @@
 (global-set-key (kbd "C-c m c") 'mc/edit-lines)
 
 
+;; (use-package lsp-rust
+;;   :after lsp-mode)
 (use-package rust-mode
   :mode "\\.rs\\'"
   :hook (rust-mode . lsp-deferred))
@@ -405,8 +407,7 @@
   :mode "\\.py\\'"
   :hook (python-mode . lsp-deferred))
 
-;; (use-package lsp-rust
-;;   :after lsp-mode)
+(use-package python-black)
 
 (use-package typescript-mode
   :mode "\\.ts\\'"
@@ -419,6 +420,8 @@
   :mode "\\.tsx\\'"
   :mode "\\.jsx\\'")
 (use-package web-mode)
+
+
 
 
 ;; Evil stuff
@@ -483,3 +486,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (python-black which-key web-mode visual-fill-column use-package unicode-fonts typescript-mode rust-mode rjsx-mode rainbow-delimiters python-mode org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra hnreader helpful general forge doom-themes doom-modeline counsel-projectile company-box command-log-mode))))
