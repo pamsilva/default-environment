@@ -23,7 +23,6 @@
     include_tasks: install-oh-my-zsh.yml
     when: not oh_my_zsh_installed.stat.exists
   
-  # Install default environment on machine
   - name: Clone repo into user's home directory
     become: yes
     become_user: "{{ user }}"
@@ -33,13 +32,34 @@
       accept_hostkey: yes
       key_file: "/home/{{ user }}/.ssh/id_rsa"
  
- 
-  # Set up tmux 
   - name: Setting up tmux
     become: yes
     become_user: "{{ user }}"
     file:
       src: "/home/{{ user }}/.default-environment/tmux.conf"
       dest: "/home/{{ user }}/.tmux.conf"
+      state: link
+
+  - name: Setting up emacs configuration
+    become: yes
+    become_user: "{{ user }}"
+    file:
+      src: "/home/{{ user }}/.default-environment/init.el"
+      dest: "/home/{{ user }}/.emacs.d/init.el"
+      state: link
+
+  - name: Setp ORG - create Logs directory
+    become: yes
+    become_user: "{{ user }}"
+    file:
+      path: "/home/{{ user }}/Logs"
+      state: directory
+
+  - name: Setp ORG - create symbolic link for orgs directory
+    become: yes
+    become_user: "{{ user }}"
+    file:
+      src: "/home/{{ user }}/4mlox-hdazt/orgs"
+      dest: "/home/{{ user }}/Logs/orgs"
       state: link
 

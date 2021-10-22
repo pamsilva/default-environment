@@ -223,6 +223,8 @@
 	  "~/Logs/orgs/Todos.org"	  
           "~/Logs/orgs/Birthdays.org"))
 
+  (setq org-image-actual-width nil)
+
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
@@ -421,6 +423,8 @@
   :mode "\\.jsx\\'")
 (use-package web-mode)
 
+(use-package sql-indent)
+
 
 
 
@@ -485,12 +489,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (python-black which-key web-mode visual-fill-column use-package unicode-fonts typescript-mode rust-mode rjsx-mode rainbow-delimiters python-mode org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra hnreader helpful general forge doom-themes doom-modeline counsel-projectile company-box command-log-mode))))
+)
+
