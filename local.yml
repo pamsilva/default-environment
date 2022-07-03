@@ -19,18 +19,28 @@
       path: "/home/{{ user }}/.oh-my-zsh"
     register: oh_my_zsh_installed
   
-  - name: do stuff
+  - name: install OMZ
     include_tasks: install-oh-my-zsh.yml
     when: not oh_my_zsh_installed.stat.exists
-  
+
+  - name: Check if default environment is installed
+    become: yes
+    become_user: "{{ user }}"
+    ansible.builtin.git:
+      repo: git@github.com:pamsilva/default-environment.git
+      dest: "/home/{{ user }}/.default-environment"
+      clone: no
+      update: no
+    register: default_environment_installed
+    
   - name: Clone repo into user's home directory
     become: yes
     become_user: "{{ user }}"
-    git:
+    ansible.builtin.git:
       repo: git@github.com:pamsilva/default-environment.git
       dest: "/home/{{ user }}/.default-environment"
       accept_hostkey: yes
-      key_file: "/home/{{ user }}/.ssh/id_rsa"
+    when: not default_environment_installed
  
   - name: Setting up tmux
     become: yes
