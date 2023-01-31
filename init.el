@@ -10,10 +10,18 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
+;; mac setup
+(setq mac-option-key-is-meta t)
 
 ;; Line numbers
 (column-number-mode)
 (global-display-line-numbers-mode t)
+
+;; making scrolling better
+(setq scroll-preserve-screen-position 1)
+(global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
+(global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
+(setq scroll-step 3)
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
