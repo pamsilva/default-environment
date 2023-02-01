@@ -433,75 +433,19 @@
 
 (use-package sql-indent)
 
+(use-package yaml-mode)
 
-
-
-;; Evil stuff
-;; (use-package evil
-;;   :init
-;;   (setq evil-want-integration t)
-;;   (setq evil-want-keybinding nil)
-;;   (setq evil-want-C-u-scroll t)
-;;   (setq evil-want-C-i-jump nil)
-;;   :config
-;;   (evil-mode 1)
-;;   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-;;   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-
-;;   ;; Use visual line motions even outside of visual-line-mode buffers
-;;   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-;;   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-;;   (evil-set-initial-state 'messages-buffer-mode 'normal)
-;;   (evil-set-initial-state 'dashboard-mode 'normal))
-
-;; (use-package evil-collection
-;;   :after evil
-;;   :config
-;;   (evil-collection-init))
-
-
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(custom-safe-themes
-;;    '("c4bdbbd52c8e07112d1bfd00fee22bf0f25e727e95623ecb20c4fa098b74c1bd" default))
-;;  '(doom-modeline-height 15)
-;;  '(package-selected-packages
-;;    '(all-the-icons-ivy-rich visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package)))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(custom-safe-themes
-;;    '("c4bdbbd52c8e07112d1bfd00fee22bf0f25e727e95623ecb20c4fa098b74c1bd" default))
-;;  '(doom-modeline-height 30)
-;;  '(package-selected-packages
-;; <<<<<<< HEAD
-;;    (quote
-;;     (lsp-ivy company-lsp lsp-ui python-mode web-mode rjsx-mode emacs-hnreader hnreader visual-fill-column org-bullets forge magit counsel-projectile projectile hydra doom-themes helpful counsel ivy-rich which-key rainbow-delimiters all-the-icons-install-fonts unicode-fonts doom-modeline ivy command-log-mode use-package))))
-;; =======
-;;    '(typescript-mode company-box zpl-mode yasnippet-snippets yaml-tomato yaml-mode which-key visual-fill-column use-package transpose-frame toml-mode sqlup-mode rustic rainbow-delimiters racer pyimport org-mobile-sync org-bullets multiple-cursors memoize material-theme markdown-mode+ lsp-ui json-reformat jedi-direx hydra helpful gnu-elpa-keyring-update git-lens git-blamed git general forge flymake-rust flycheck-rust elpy ecb doom-themes doom-modeline ctags-update counsel-projectile company-racer company-lsp cargo better-defaults backward-forward async all-the-icons-ivy-rich)))
-;; >>>>>>> bd17743ca9df5e551692884bc20b50c16b0455da
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
-
+ '(ispell-dictionary nil)
+ '(package-selected-packages
+   '(yaml-mode all-the-Icons which-key web-mode visual-fill-column use-package typescript-mode sql-indent rust-mode rjsx-mode rainbow-delimiters python-mode python-black org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra helpful general forge doom-themes doom-modeline counsel-projectile company-box all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
