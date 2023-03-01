@@ -431,9 +431,25 @@
   :mode "\\.jsx\\'")
 (use-package web-mode)
 
+(use-package yaml-mode)
+
+(use-package sql)
 (use-package sql-indent)
 
-(use-package yaml-mode)
+(add-hook 'sql-mode-hook 'lsp)
+(setq lsp-sqls-workspace-config-path 'workspace)
+(setq lsp-sqls-connections
+    '(((alias . "cybsafe-local") (driver . "mysql") (dataSourceName . "root:admin@tcp(127.0.0.1:3306)/cybsafe"))))
+
+
+(setq sql-connection-alist
+      '((pool-a
+         (sql-product 'mysql)
+         (sql-server "127.0.0.1")
+         (sql-user "root")
+         (sql-password "admin")
+         (sql-database "cybsafe")
+         (sql-port 3306))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
