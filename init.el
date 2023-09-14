@@ -481,6 +481,21 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(ispell-dictionary nil)
+;;  '(package-selected-packages
+;;    '(yaml-mode all-the-Icons which-key web-mode visual-fill-column use-package typescript-mode sql-indent rust-mode rjsx-mode rainbow-delimiters python-mode python-black org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra helpful general forge doom-themes doom-modeline counsel-projectile company-box all-the-icons)))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -488,7 +503,7 @@
  ;; If there is more than one, they won't work right.
  '(ispell-dictionary nil)
  '(package-selected-packages
-   '(yaml-mode all-the-Icons which-key web-mode visual-fill-column use-package typescript-mode sql-indent rust-mode rjsx-mode rainbow-delimiters python-mode python-black org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra helpful general forge doom-themes doom-modeline counsel-projectile company-box all-the-icons)))
+   '(straight copilot editorconfig lsp-rust cmake-mode yaml-mode which-key web-mode visual-fill-column use-package typescript-mode sql-indent rust-mode rjsx-mode rainbow-delimiters python-mode python-black org-bullets multiple-cursors lsp-ui lsp-ivy ivy-rich hydra helpful general forge doom-themes doom-modeline counsel-projectile company-box all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
