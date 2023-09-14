@@ -106,6 +106,15 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package yafolding)
+
+;; (defvar yafolding-mode-map
+;;   (let ((map (make-sparse-keymap)))
+;;     (define-key map (kbd "<C-S-return>") #'yafolding-hide-parent-element)
+;;     (define-key map (kbd "<S-tab>") #'yafolding-toggle-all)
+;;     (define-key map (kbd "<C-tab>") #'yafolding-toggle-element)
+;;     map))
+
 
 ;; Not sure i'll be using this much
 (use-package which-key
