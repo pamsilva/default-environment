@@ -7,8 +7,17 @@
 
 (menu-bar-mode -1)            ; Disable the menu bar
 
+;; debug some stuff
+;; (setq debug-on-error t)
+
 ;; Set up the visible bell
 (setq visible-bell t)
+
+;; default jump
+(setq xref-auto-jump-to-first-xref t)
+
+;; extend exec-path
+(add-to-list 'exec-path "/home/lead/.local/bin")
 
 ;; mac setup
 (setq mac-option-key-is-meta t)
@@ -91,6 +100,7 @@
 
 
 (use-package all-the-icons)
+(use-package nerd-icons)
 
 
 ;; Mode line
@@ -490,6 +500,15 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(use-package auto-package-update
+  :custom
+  (auto-package-update-interval 7)
+  (auto-package-update-prompt-before-update t)
+  (auto-package-update-hide-results t)
+  :config
+  (auto-package-update-maybe)
+  (auto-package-update-at-time "09:00"))
 
 ;; (custom-set-variables
 ;;  ;; custom-set-variables was added by Custom.
