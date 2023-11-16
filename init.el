@@ -434,7 +434,9 @@
 
 (use-package python-mode
   :mode "\\.py\\'"
-  :hook (python-mode . lsp-deferred))
+  :hook (python-mode . lsp-deferred)
+  :hook (python-mode . yafolding-mode)
+  )
 
 (use-package python-black)
 
@@ -500,6 +502,8 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(use-package sqlite3)
 
 (use-package auto-package-update
   :custom
