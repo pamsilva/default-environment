@@ -73,6 +73,7 @@
   :bind (("M-x" . counsel-M-x)
 	 ("C-x b" . counsel-ibuffer)
 	 ("C-x C-f" . counsel-find-file)
+	 ("C-M-s" . counsel-rg)
 	 :map minibuffer-local-map
 	       ("C-r" . 'counsel-minibuffer-history)))
 
