@@ -26,11 +26,22 @@
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
+;; enabling clipboard with tmux
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t)
+
 ;; making scrolling better
 (setq scroll-preserve-screen-position 1)
 (global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
 (global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
 (setq scroll-step 3)
+
+;; removing mapping of C-[ to ESC
+;; (global-unset-key (kbd "C-["))
+;; (global-set-key (kbd "<escape> <escape> <escape>") nil)
+(global-set-key (kbd "C-[ C-[ C-[") 'ignore)
+
+
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
@@ -99,10 +110,10 @@
   :init
   (ivy-rich-mode 1))
 
-
-(use-package all-the-icons)
+;; package for pretty icons
 (use-package nerd-icons)
-
+;; to install the fonts run M-x nerd-icons-install-fonts
+;; still need to instal all-the-icons fonts to cover all the bases
 
 ;; Mode line
 (use-package doom-modeline
@@ -406,6 +417,10 @@
   (use-package lsp-ivy))
 
 
+(use-package lsp-treemacs
+  :after lsp-mode
+  :config
+  (lsp-treemacs-sync-mode 1))
 
 (use-package company
   :after lsp-mode
